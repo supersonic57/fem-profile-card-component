@@ -1,0 +1,121 @@
+@import "reset";
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap');
+
+$clr-dark-cyan: hsl(185, 75%, 39%);
+$clr-very-dark-desaturated-blue: hsl(229, 23%, 23%);
+$clr-dark-grayish-blue: hsl(227, 10%, 46%);
+$clr-dark-gray: hsl(0, 0%, 59%);
+$clr-box-shadow: hsla(229, 23%, 23%, 0.3);
+
+$breakpoint-1: 380px;
+$breakpoint-2: 600px;
+
+$img-offset: calc(50vw * -1);
+
+body {
+  background-color: $clr-dark-cyan;
+}
+
+.container {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.container-bg-top {
+  position: absolute;
+  z-index: -1;
+  top: $img-offset;
+  left: $img-offset;
+}
+
+.container-bg-bottom {
+  position: absolute;
+  z-index: -1;
+  bottom: $img-offset;
+  right: $img-offset;
+}
+
+.component {
+  background-color: white;
+  width: 90%;
+  border-radius: 20px;
+  overflow: hidden;
+  font-family: "Kumbh Sans";
+  font-size: 1.1rem;
+  color: $clr-dark-grayish-blue;
+  text-align: center;
+  line-height: 1.7;
+  box-shadow: 0 30px 50px $clr-box-shadow;
+
+  @media screen and (min-width: $breakpoint-1) {
+    width: 350px;
+  }
+
+  .identity {
+    border-bottom: 1px solid lighten($clr-dark-gray, 30%);
+    display: grid;
+
+    .identity-image {
+      grid-row: 1;
+      grid-column: 1;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      height: 92%;
+
+      @media screen and (min-width: $breakpoint-1) {
+        height: 95%;
+      }
+
+      img {
+        border-radius: 50%;
+        border: 5px solid white;
+        max-width: 50%;
+      }
+    }
+
+    .identity-top-and-bottom {
+      grid-row: 1;
+      grid-column: 1;
+
+      .identity-top img {
+        width: 100%;
+      }
+
+      .identity-bottom {
+        padding: 75px 0 25px;
+
+        h1 {
+          span {
+            color: $clr-very-dark-desaturated-blue;
+            font-weight: 700;
+          }
+        }
+
+        p.location {
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+
+  .stats {
+    padding: 25px;
+    display: flex;
+    justify-content: space-around;
+    
+    p {
+      color: $clr-very-dark-desaturated-blue;
+      font-weight: 700;
+
+      span {
+        display: block;
+        color: $clr-dark-grayish-blue;
+        font-weight: 400;
+        font-size: 0.6rem;
+        letter-spacing: 0.1rem;
+      }
+    }
+  }
+}
